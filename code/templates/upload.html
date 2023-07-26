@@ -5,6 +5,7 @@
    <meta name="viewport"
          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="icon" type="image/x-icon" href="/static/assets/favicon.ico">
    <title>Document</title>
 </head>
 <body>
@@ -16,33 +17,33 @@
          <button type="submit">Send</button>
       </form>
 
-<!--<script>-->
-<!--   const $textarea = document.querySelector('textarea');-->
-<!--   const $input = document.querySelector('input[type="file"]');-->
+<script>
+   const $textarea = document.querySelector('textarea');
+   const $input = document.querySelector('input[type="file"]');
 
-<!--   $input.addEventListener('change', (event) => {-->
-<!--      const reader = new FileReader();-->
-<!--      reader.addEventListener('load', (event) => {-->
-<!--         $textarea.value = event.target.result;-->
-<!--      });-->
+   $input.addEventListener('change', (event) => {
+      const reader = new FileReader();
+      reader.addEventListener('load', (event) => {
+         $textarea.value = event.target.result;
+      });
 
-<!--      reader.readAsText(event.target.files[0]);-->
-<!--   });-->
+      reader.readAsText(event.target.files[0]);
+   });
 
 
-<!--   const $btn = document.querySelector('button');-->
+   const $btn = document.querySelector('button');
 
-<!--   $btn.addEventListener('click', (e) => {-->
-<!--      e.preventDefault();-->
+   $btn.addEventListener('click', (e) => {
+      e.preventDefault();
 
-<!--      const formData = new FormData();-->
-<!--      formData.append('file', $input.files[0]);-->
+      const formData = new FormData();
+      formData.append('file', $input.files[0]);
 
-<!--      fetch('/converted', {-->
-<!--         method: 'post',-->
-<!--         data: formData,-->
-<!--      }).then(res => res.text()).then(console.log)-->
-<!--   })-->
-<!--</script>-->
+      fetch('/converted', {
+         method: 'post',
+         data: formData,
+      }).then(res => res.text()).then(console.log)
+   })
+</script>
    </body>
 </html>

@@ -1,3 +1,5 @@
+import sys
+
 import converter
 from flask_cors import CORS
 from flask import Flask, render_template, request, send_file
@@ -12,9 +14,9 @@ def main_page():
     return render_template('upload.html')
 
 
-@app.route('/upload')
-def upload_file():
-    return main_page()
+@app.route('/<string:page_name>')
+def upload_file(page_name=None):
+    return render_template(page_name)
 
 
 # @app.route('/download')
@@ -34,8 +36,10 @@ def convert():
             csv_filename = 'temp/uploaded-file.csv'
             json_filename = 'temp/uploaded-file.json'
 
-            print(request.files['file'])
-            f = request.files['file']
+            print(request.files.get('file'), file=sys.stderr)
+            f = request.form['file']
+
+            print('OK!!!', file=sys.stderr)
 
             print(f)
 
